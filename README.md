@@ -1,55 +1,13 @@
-# README Template
+# Landing Page Project
 
-Below is a template provided for use when building your README file for students.
+## Table of Contents
 
-# Project Title
+* [Instructions](#instructions)
 
-Project description goes here.
+## Instructions
 
-## Getting Started
+The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
-Instructions for how to get a copy of the project running on your local machine.
+To get started, open `js/app.js` and start building out the app's functionality
 
-### Dependencies
-
-```
-Examples here
-```
-
-### Installation
-
-Step by step explanation of how to get a dev environment running.
-
-List out the steps
-
-```
-Give an example here
-```
-
-## Testing
-
-Explain the steps needed to run any automated tests
-
-### Break Down Tests
-
-Explain what each test does and why
-
-```
-Examples here
-```
-
-## Project Instructions
-
-This section should contain all the student deliverables for this project.
-
-## Built With
-
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
-
-Include all items used to build project.
-
-## License
-
-[License](LICENSE.txt)
+For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
