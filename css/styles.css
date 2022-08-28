@@ -88,9 +88,21 @@ section {
     transition: ease 0.3s all;
 }
 
+#navbar__list {
+    background: navy;
+}
+
+.nav__hyperlink {
+	color: white;
+}
+
+.navbar__list__item {
+    margin: 1rem;
+}
+
 /* Header Styles */
 .page__header {
-    background: #fff;
+    background:#fff;
     position: fixed;
     top: 0;
     width: 100%;
@@ -206,6 +218,13 @@ section.your-active-class .landing__container::before {
 section.your-active-class .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
+}
+section.active {
+    background: linear-gradient(0deg, rgba(156, 24, 24, 0.26) 100%, rgba(71, 26, 115, 0.774) 100%);
+}
+
+.active-nav {
+    color: violet;
 }
 
 /* Section Active Styles Keyframe Animations */
