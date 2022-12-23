@@ -47,20 +47,26 @@ const sections=document.querySelectorAll('section');
 // build the nav
 function navBuild() {
 // sections loop
-    let makenav= '';
+   // let makenav= '';
     
     let j =0 ;
     while(j<sections.length){
         // varible stores id of section
         let secid = sections[j].id;
-       // varible stores data set of section
+        // varible stores data set of section
         let secnav = sections[j].dataset.nav;
-// the html code i want to add 
-        makenav= makenav +  `<li><a class="menu__link" href="#${secid}">${secnav}</a></li>`;
+        //varible that target the ul tag 
+        const mainList = document.querySelector('#navbar__list');
+         // the html code i want to add 
+        const htmlTextToAdd = (`<li><a class="menu__link" href="#${secid}">${secnav}</a></li>`);
+        //adding to html page 
+       mainList.insertAdjacentHTML('beforeend', htmlTextToAdd); 
+       // the html code i want to add 
+       // makenav= makenav +  `<li><a class="menu__link" href="#${secid}">${secnav}</a></li>`;
 
          j++
     }
-    nav.innerHTML = makenav;
+    //nav.innerHTML = makenav;
 
 
 }
