@@ -1,13 +1,15 @@
 # Landing Page Project
 
-## Table of Contents
+## project recap
+1 = > add section 4 in html file 
+2 = > add extension of js file in end of html file
+3 = > make a js code ( first loop) to take all sections id and data and copy it into nav-bar data 
+4 = > change some colors and spaces  in css code 
+5 = > making scroll function to make movment smooth
+                          first method to active section
+6 = > function  have aloop over all sections and list and get bound top of each sesction 
+and store in varibles
+then add or remove class acording to its boundrys
 
-* [Instructions](#instructions)
+                    
 
-## Instructions
-
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
