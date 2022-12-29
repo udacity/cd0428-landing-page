@@ -77,6 +77,14 @@ section {
 
 }
 
+@media screen and (max-width:440px) {
+    .navbar__menu li{
+        display: block;
+        text-align: center;
+        
+    }
+}
+
 .navbar__menu li {
     display: inline-block;
 
@@ -117,9 +125,7 @@ section {
     padding: 3em;
     color: #fff;
 }
-html {
-    scroll-behavior: smooth;
-  }
+
 
 .page__footer p{
     color: #fff;

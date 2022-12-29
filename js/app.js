@@ -72,12 +72,33 @@ function navBuild() {
 }
 //call function
 navBuild();
+function  scrolling(){
+    for (let i=0;i<sections.length;i++){
+
+            let myList= document.querySelectorAll('li')
+            //store number of index of current list
+            let myCurrentList =myList[i]; 
+
+            
+  // on click target section from list go to it with smoth way
+            myCurrentList.addEventListener('click',function toSection(x){
+                console.log("test event listener");
+                x.preventDefault();
+                sections[i].scrollIntoView({behavior: "smooth"})
+            })
+    };
+
+};
+//call function
+scrolling();
 // Add class 'active' to section when near top of viewport
 
 function active(){
     document.addEventListener('scroll',function(){
         let i=0
+        
         while(i<sections.length){
+            
             //boundry of top
             
             const boundT = sections[i].getBoundingClientRect().top;
@@ -93,32 +114,14 @@ function active(){
                 sections[i].classList.remove("class","your-active-class")
                 lists[i].classList.remove("focusnav")
             }
+            
             i++
+            
         }
     })
     }
     // call function
     active();
-
-
-    function  scrolling(){
-        for (let i=0;i<sections.length;i++){
-    
-                let myList= document.querySelectorAll('li')
-                //store number of index of current list
-                let myCurrentList =myList [i]; 
-    
-                
-      // on click target section from list go to it with smoth way
-                myCurrentList.addEventListener('click',function toSection(){
-                    console.log("test event listener");
-                    sections[i].scrollIntoView({behavior: "smooth", block: "start"})
-                })
-        };
-    
-    };
-    //call function
-    scrolling();
 
 /**
  * End Main Functions
