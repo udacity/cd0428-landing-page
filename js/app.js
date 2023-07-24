@@ -38,13 +38,18 @@
  * 
 */
 
-// build the nav
+// 1. Create a function for building the nav menu
+// - this function should build the menu links based on the sections available in the document
+// - each menu link should have the "menu__link" class applied
 
 
-// Add class 'active' to section when near top of viewport
+// 2. Create a function for scrolling the page to the corresponding section when a nav menu link was clicked
+// - the page should scroll smoothly using a JavaScript method instead of CSS
 
 
-// Scroll to anchor ID using scrollTO event
+// 3. Create a function for highlighting the visible section in the viewport as active
+// - the corresponding nav menu link should also be highlighted as active
+// - only one section should be active at a time
 
 
 /**
@@ -53,10 +58,9 @@
  * 
 */
 
-// Build menu 
+// 1. Call the function for building the nav menu
 
-// Scroll to section on link click
+// 2. Call the function for scrolling to the section on link click
 
-// Set sections as active
-
+// 3. Call the function for highlighting the visible section as active
 
