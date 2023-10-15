@@ -208,6 +208,27 @@ section.your-active-class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
+#navbar__list{
+    text-align: left; 
+    padding: 4px;
+}
+
+.list {
+    color: black;
+    padding: 8px;
+    cursor: pointer
+}
+
+.list:hover {
+    color: white;
+    background: black;
+    cursor: pointer;
+}
+
+.active {
+    color: white;
+    background: black;
+}
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
 	from {
