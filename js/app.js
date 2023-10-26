@@ -93,6 +93,7 @@ sections.forEach((section, index) => {
     navbarList.appendChild(listItem);
 })
 
+
 //add smooth scrolling
 navbarList.querySelectorAll('a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -103,14 +104,14 @@ navbarList.querySelectorAll('a').forEach(anchor => {
 });
 
 document.addEventListener(scroll, () => {
-    let header = document.querySelector('header');
-    header.classList.toggle("sticky",window.scrollY > 0)
-    if (window.scrollY > 0) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-    });
+  let header = document.querySelector('header');
+  header.classList.toggle("sticky",window.scrollY > 0)
+  if (window.scrollY > 0) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
 
 
 document.querySelectorAll('nav a').forEach(anchor => {
