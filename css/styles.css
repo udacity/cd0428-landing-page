@@ -10,34 +10,105 @@
 
 
 /* ---- Base Rules ---- */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
     background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
-    margin: 0;
-    font-family: 'Merriweather', serif;
+    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, #003C49 100%);
     color: #fff;
+    padding-top: 5em;
 }
+
+section.parallax {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+.parallax::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, #06404B, transparent);
+    z-index: 100000;
+
+}
+
+.parallax img {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 1000px;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.parallax::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #06404B, transparent);
+    z-index: 100000;   
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.active {
+    border: 1px solid #051D19;
+}
+
+
 
 
 /* Typeography General*/
+/* #places-heading {
+    position: relative;
+    color: #fff;
+    font-size: 5em;
+    font-family: Sriracha;
+    text-align: center;
+    width: 30%;
+    z-index: 10;
+} */
+
 h1 {
     font-family: 'Fira Sans', sans-serif;
     font-size: 3em;
-    margin: 2em 1rem;
+    margin-top: -8%;
+    opacity: .50;
 }
 
-@media only screen and (min-width: 35em){
-    h1 {
-        font-size: 7em;
-        margin: 2em 4rem 1em;
-    }
-}
 
 h2 {
     border-bottom: 1px solid #cc1;
     font-family: 'Oxygen', Sans-Serif;
     font-size: 3em;
     color: #fff;
+}
+
+h2:hover {
+    color: #06404B;
+}
+
+h2::selection {
+    color: #06404B;
+}
+
+h2.active {
+    color: #06404B;
 }
 
 p {
@@ -47,31 +118,100 @@ p {
 
 /* ---- Layout Rules ---- */
 main {
-    margin: 10vh 1em 10vh;
+    width: 100%;
 }
 
 .main-hero {
-    min-height: 40vh;
-    padding-top: 3em;
+    min-height: 80vh;
+    padding-top: 1em;
 }
 
 section {
     position: relative;
-    min-height: 80vh;
+    min-height: 50vh;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
+section.active {
+    border: 1px solid #051D19;
+}
+
+
+
+/* ---- Animation Rules ---- */
+
+#sky-background {
+    --animate-duration: 10s;
+}
+
+.selector {
+    z-index: 1;
+    --animate-duration: 30s;
+}
 
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
+nav {
+    background-color: transparent;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    top: 0;
+    align-items: center;
+    position: sticky;
+}
+
+.nav-logo-container {
+    width: 30%;
+}
+
+.logo {
+    z-index: 0;
+    margin: 10%;
+    padding: 10%;
+    display: flex;
+    color: white;
+    font-size: 60px;
+    text-decoration: none;
+}
+
+.nav-menu-container {
+    width: 70%;
+    position: sticky;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+}
+
+nav ul li {
+    padding: 3%;
+}
+
+.nav-menu-container {
+    margin-top: 4%;
+    position: sticky;
+}
+
+nav ul li a{
+    z-index: 0;
+    color: white;
+    text-decoration: none;
+    }
+
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
-    text-align: right;
-}
-
-.navbar__menu li {
-    display: inline-block;
+    text-align: center;
 }
 
 .navbar__menu .menu__link {
@@ -89,17 +229,35 @@ section {
 }
 
 /* Header Styles */
-.page__header {
-    background: #fff;
-    position: fixed;
+header {
     top: 0;
-    width: 100%;
-    z-index: 5;
+    /* width: 100%; */
+    height: 5em;
+    display: flex;
+    background: transparent;
+    align-items: center;
+    position: sticky;
+    transition: background-color 0.4s ease-in-out;
+}
+
+header.scrolled {
+    background-color: #06404B;
+    z-index: 100000;
+    /* opacity: 0.9; */
+}
+
+header nav a {
+    transition: color 0.4s ease-in-out;
+}
+
+header.scrolled nav a {
+    color: white;
+    z-index: 100001;
 }
 
 /* Footer Styles */
 .page__footer {
-    background: #000;
+    background: #06404B;
     padding: 3em;
     color: #fff;
 }
@@ -114,6 +272,12 @@ section {
 .landing__container {
     padding: 1em;
     text-align: left;
+}
+@media only screen and (min-width: 35em){
+    h1 {
+        font-size: 7em;
+        margin: 2em 4rem 1em;
+    }
 }
 
 @media only screen and (min-width: 35em){
@@ -193,9 +357,10 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+section.active {
+    border: 1px solid #051D19;
+    background: rgb(5, 29, 25);
+    background: linear-gradient(90deg, rgba(5, 29, 25, 0.1) 0%, rgba(6, 64, 75, 0.1) 100%);
 }
 
 section.your-active-class .landing__container::before {
