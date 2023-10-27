@@ -28,7 +28,6 @@ let balloon1 = document.getElementById('balloons-transparent-1');
 let balloon2 = document.getElementById('balloons-transparent-2');
 let balloon3 = document.getElementById('balloons-transparent-3');
 let balloon4 = document.getElementById('balloons-transparent-1');
-let heading = document.getElementById('places-heading');
 
 /**
  * End Global Variables
@@ -52,14 +51,14 @@ document.addEventListener('scroll', function() {
  *
 */
 
-//paralax functionality of images that appear in the hero section
-function scrollTrigger(selector){
-    let els = document.querySelectorAll(selector)
-    els = Array.from(els)
-    els.forEach(el => {
+//parallax functionality of images that appear in the hero section
+function scrollTrigger(){
+    let els = document.querySelectorAll('.selector');
+    els.forEach((el) => {
       addObserver(el)
-    })
+    });
 }
+
 function addObserver(el){
       // creating a new IntersectionObserver instance
       let observer = new IntersectionObserver((entries, observer) => { // takes a callback function that receives two arguments: the elements list and the observer instance.
@@ -76,7 +75,7 @@ function addObserver(el){
     observer.observe(el)
 }
 
-
+// Build menu
 // build the nav
 
 const navbarList = document.getElementById('navbar__list');
@@ -93,6 +92,44 @@ sections.forEach((section, index) => {
     navbarList.appendChild(listItem);
 })
 
+const sectionsHighlight = document.querySelectorAll('section');
+
+//function to check if a section is in the viewport
+const isInViewport = (element) => {
+  const rect = element.getBoundingClientRect();
+    return(
+      rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    );
+};
+
+
+
+// Add class 'active' to section when near top of viewport
+//function to handle active state
+const setActiveSection = ()=>{
+  let observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const sectionId = entry.target;
+      const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+      if(entry.isIntersecting) {
+        section.classlist.add('active');
+        navLink.classList.add('active');
+      } else {
+        section.classList.remove('active');
+        navLink.classList.remove('active');
+      }
+    });
+  });
+
+  sectionsHighlight.forEach((section) => {
+    observer.observe(section);
+  });
+};
+
+// Set sections as active
+//eventListener added to scroll
+window.addEventListener('scroll', setActiveSection);
+
 
 //add smooth scrolling
 navbarList.querySelectorAll('a').forEach(anchor => {
@@ -103,13 +140,42 @@ navbarList.querySelectorAll('a').forEach(anchor => {
     });
 });
 
-document.addEventListener(scroll, () => {
+const headerFade = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  const headerHeight = header.offsetHeight;
+  const opacity = Math.min(scrollPosition / headerHeight, 1);
+  header.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
+});
+
+document.addEventListener('scroll', () => {
   let header = document.querySelector('header');
   header.classList.toggle("sticky",window.scrollY > 0)
   if (window.scrollY > 0) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
+  }
+});
+
+const backgroundHighlight = document.querySelector('section');
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  const sectionHeight = section.offsetHeight;
+  const opacity = Math.min(scrollPosition / sectionHeight, 1);
+  section.style.border = `1px solid rgb(5, 29, 25)${opacity})`;
+  section.style.backgroundColor = `rgb(5, 29, 25)${opacity}`
+});
+
+document.addEventListener('scroll', () => {
+  let section = document.querySelector('section');
+  section.classList.toggle("active",window.scrollY > 0)
+  if (window.scrollY > 0) {
+    section.classList.add('active');
+  } else {
+    section.classList.remove('active');
   }
 });
 
@@ -122,11 +188,31 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
+function scrollToHash() {
+  const viewSection = document.querySelector(this.getAttribute('href'));
+  viewSection.scrollIntoView({behavior: smooth});
+}
 
-// Add class 'active' to section when near top of viewport
-
+navbarList.querySelectorAll('a').forEach((anchor) => {
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    scrollToHash.call(this);
+  });
+});
 
 // Scroll to anchor ID using scrollTO event
+// Scroll to section on link click
+
+const anchorLinks = document.querySelectorAll(`a[href^="#"]`);
+anchorLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const target = document.querySelector(link.hash);
+    target.scrollIntoView({behavior: 'smooth'});
+  });
+});
+
+
 
 
 /**
@@ -138,14 +224,14 @@ document.querySelectorAll('nav a').forEach(anchor => {
 //calling functions for parallax hero section
 
 scrollTrigger(('.selector'), {
-    rootMargin: '-200px'
-  })
+  rootMargin: '-200px'
+})
+
+scrollTrigger('.selector');
+setActiveSection();
 
 
-// Build menu
 
-// Scroll to section on link click
 
-// Set sections as active
 
 

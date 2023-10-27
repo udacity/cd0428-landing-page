@@ -66,6 +66,10 @@ section.parallax {
     pointer-events: none;
 }
 
+.active {
+    border: 1px solid #051D19;
+}
+
 
 
 
@@ -95,6 +99,18 @@ h2 {
     color: #fff;
 }
 
+h2:hover {
+    color: #06404B;
+}
+
+h2::selection {
+    color: #06404B;
+}
+
+h2.active {
+    color: #06404B;
+}
+
 p {
     line-height: 1.6em;
     color: #eee;
@@ -113,7 +129,15 @@ main {
 section {
     position: relative;
     min-height: 50vh;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
+
+section.active {
+    border: 1px solid #051D19;
+}
+
+
 
 /* ---- Animation Rules ---- */
 
@@ -217,8 +241,9 @@ header {
 }
 
 header.scrolled {
-    background-color: white;
-    opacity: 0.9;
+    background-color: #06404B;
+    z-index: 100000;
+    /* opacity: 0.9; */
 }
 
 header nav a {
@@ -226,12 +251,13 @@ header nav a {
 }
 
 header.scrolled nav a {
-    color: black;
+    color: white;
+    z-index: 100001;
 }
 
 /* Footer Styles */
 .page__footer {
-    background: #000;
+    background: #06404B;
     padding: 3em;
     color: #fff;
 }
@@ -331,9 +357,10 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+section.active {
+    border: 1px solid #051D19;
+    background: rgb(5, 29, 25);
+    background: linear-gradient(90deg, rgba(5, 29, 25, 0.1) 0%, rgba(6, 64, 75, 0.1) 100%);
 }
 
 section.your-active-class .landing__container::before {
